@@ -1,0 +1,16 @@
+
+
+.hidden {
+    display: none;
+}
+
+.smallinput {
+    width: 70px;
+}
+
+
+.uidivider {
+    width: 95%;
+    height: 1px;
+    background: #aaa
+}

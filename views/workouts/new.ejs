@@ -1,0 +1,49 @@
+<%include ../partials/header %>
+<h1>Create a Workout</h1>
+
+<div>
+    <p id="add" >Add Exercise</p>
+    <form id="newliftform" class="hidden" action="">
+        <select>
+        <option value="squat">Squat</option>
+        <option value="deadlift">Deadlift</option>
+        <option value="pullups">Pullups</option>
+        <option value="pushups">Pushups</option>
+        <option value="chinups">Chinups</option>
+        <option value="ohbdb">OHB DB</option>
+        <option value="ohpbb">OHP BB</option>
+        <option value="benchdb">Bench DB</option>
+        <option value="benchbb">Bench BB</option>
+        </select>
+        <input class="smallinput" type="number" name="workout[weight]" placeholder="Weight">
+        <input class="smallinput" type="number" name="workout[reps]" placeholder="Reps">
+        <input class="smallinput" type="number" name="workout[sets]" placeholder="Sets">
+        <input type="date">
+    </form>
+</div>
+<br>
+
+
+
+
+<div class="uidivider"></div>   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%include ../partials/footer %>

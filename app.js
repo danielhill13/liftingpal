@@ -1,13 +1,25 @@
 var express         = require('express'),
     app             = express();
 
+app.set('view engine', 'ejs');
+app.use(express.static('public'));
+
 
 app.get('/', function(req, res){
-    res.send("welcome to the weightlifting logger");
+    res.render('index');
 })
 
 
+//Workouts Routes
+//INDEX
+app.get('/workouts', function(req, res){
+    res.render('workouts/index')
+})
 
+//NEW
+app.get('/workouts/new', function(req, res){
+    res.render('workouts/new');
+})
 
 
 
