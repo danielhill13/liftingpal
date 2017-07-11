@@ -11,16 +11,16 @@
         <option value="pullups">Pullups</option>
         <option value="pushups">Pushups</option>
         <option value="chinups">Chinups</option>
-        <option value="ohbdb">OHB DB</option>
+        <option value="ohpdb">OHP DB</option>
         <option value="ohpbb">OHP BB</option>
         <option value="benchdb">Bench DB</option>
         <option value="benchbb">Bench BB</option>
         </select>
-        <input class="smallinput" type="number" name="workout[weight]" placeholder="Weight">
+        <input class="smallinput" type="number" name="workout[weight]" id="weight" placeholder="Weight">
         <input class="smallinput" type="number" name="workout[reps]" placeholder="Reps">
         <input class="smallinput" type="number" name="workout[sets]" placeholder="Sets">
         <input class = "smallinput" type="date">
-        <input type="submit">
+        <input id="submitnew" type="submit">
     </form>
 </div>
 <br>
@@ -30,5 +30,5 @@
 
 
 
-
+<script src="/js/newworkout.js"></script>
 <%include ../partials/footer %>

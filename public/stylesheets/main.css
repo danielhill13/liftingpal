@@ -36,4 +36,8 @@ body {
     flex-shrink: 0;
     padding: 10px;
     background: #aaa;
+    display: flex;
+}
+#footer div {
+    margin: 0px 5px 0px 0px;
 }

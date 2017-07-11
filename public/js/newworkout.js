@@ -1,5 +1,4 @@
-var liftForm = document.getElementById('#newliftform');
-var add      = document.getElementById('#add');
+var submit   = document.getElementById('#submitnew');
 
 document.getElementById('add').addEventListener('click', toggleHide);
 
@@ -11,3 +10,4 @@ function toggleHide(){
             document.getElementById("add").textContent="Add Exercise";
         }
 }
+
