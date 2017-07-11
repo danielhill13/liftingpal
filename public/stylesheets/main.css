@@ -12,19 +12,28 @@ body {
     display: none;
 }
 
-.smallinput {
-    width: 55px;
+
+@media screen and (max-width: 600px) {
+    .smallinput {
+        width: 57px;
+    }
 }
+
+/*Basic UI Divider*/
 .uidivider {
     width: 95%;
     height: 1px;
     background: #aaa
 }
-.content {
+
+/*This supports flexbox for footer going underneath*/
+.content {  
     flex: 1 0 auto;
 }
+
+/*Flexbox Footer*/
 #footer {
     flex-shrink: 0;
-    padding: 20px;
+    padding: 10px;
     background: #aaa;
 }
