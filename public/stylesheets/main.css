@@ -31,9 +31,19 @@ body {
     flex: 1 0 auto;
 }
 .workoutlisted {
-    margin: 3px;
+    height: 1em;
+    text-transform: capitalize;
+    border: 1px dashed #aaa;
+    margin: 2px;
 }
-
+.workoutname{
+    display: inline-flex;
+    width: 60px;
+}
+.workoutdata {
+    display: inline-flex;
+    width: 60px;
+}
 
 /*Flexbox Footer*/
 #footer {

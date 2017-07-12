@@ -3,13 +3,13 @@
 <a href="/workouts/new">Add a workout</a>
 <div class="uidivider"></div>   
 <% workouts.forEach(function(workout){ %>
-<p class="workoutlisted">
-    <%=workout.exercisedate.toDateString().substr(4,12) %>
-    <%=workout.exercise %>:
-    <%=workout.weight %> lbs
-    <%=workout.reps %> reps
-    <%=workout.sets %> sets
-</p>
+<div class="workoutlisted">
+    <%=workout.exercisedate.toDateString().substr(4,7)%>
+   <div class="workoutname"><%=workout.exercise %>:</div>
+   <div class="workoutdata"><%=workout.weight%> lbs</div>
+   <div class="workoutdata"><%=workout.reps %> reps</div>
+   <div class="workoutdata"><%=workout.sets %> sets</div>
+</div>
 <% }) %>
 
 <%include ../partials/footer %>
