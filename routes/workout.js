@@ -31,37 +31,38 @@ router.post("/", function(req, res){
             console.log(err);
         } else {
             console.log(newWorkout);
-            res.redirect("/workouts/new");
+            res.redirect("/workouts");
         }
     })
 })
 //SHOW
-// router.get("/:id", function(req, res){
-//     Destination.findById(req.params.id).populate("comments").exec(function(err, foundDestination){
-//         if(err){
-//             console.log(err);
-//             res.redirect("/destinations");
-//         }else {
-//             res.render("destinations/show", {destination: foundDestination});
-//         }
-//     })
-// });
-//EDIT - takes me to edit destinations page
-// router.get("/:id/edit", middleware.checkDestinationOwnership, function(req, res){
-//     Destination.findById(req.params.id, function(err, foundDestination){
-//         res.render("destinations/edit", {destination: foundDestination});
-//         });
-//     });
+router.get("/:id", function(req, res){
+    Workout.findById(req.params.id).exec(function(err, foundWorkout){
+        if(err){
+            console.log(err);
+            res.redirect("/workouts");
+        }else {
+            res.render("workouts/show", {workout: foundWorkout});
+        }
+    })
+});
+// EDIT - takes me to edit workout page
+router.get("/:id/edit", function(req, res){
+    Workout.findById(req.params.id, function(err, foundWorkout){
+        res.render("workouts/edit", {workout: foundWorkout});
+        });
+    });
 //UPDATE
-// router.put("/:id", middleware.checkDestinationOwnership, function(req, res){
-//     Destination.findByIdAndUpdate(req.params.id, req.body.destination, function(err, updatedDestination){
-//         if(err){
-//             res.redirect("/destinations");
-//         } else {
-//             res.redirect("/destinations/" + req.params.id);
-//         }
-//     });
-// });
+router.put("/:id", function(req, res){
+    Workout.findByIdAndUpdate(req.params.id, req.body.workout, function(err, updatedWorkout){
+        if(err){
+            console.log(err);
+            res.redirect("/workouts");
+        } else {
+            res.redirect("/workouts/");
+        }
+    });
+});
 //DESTROY
 // router.delete("/:id", middleware.checkDestinationOwnership, function(req, res){
 //     Destination.findByIdAndRemove(req.params.id, function(err){

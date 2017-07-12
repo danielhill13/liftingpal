@@ -1,10 +1,43 @@
 <%include ../partials/header %>
 <h1>This is index of workouts</h1>
-<a href="/workouts/new">Add a workout</a>
+<div>
+    <p id="add">Add Exercise</p>
+    <form id="newliftform" class="hidden" action="/workouts" method="POST">
+        <select class="smallinput" name="workout[exercise]">
+        <option value="default">Select</option>
+        <option value="squat">Squat</option>
+        <option value="deadlift">Deadlift</option>
+        <option value="pullups">Pullups</option>
+        <option value="pushups">Pushups</option>
+        <option value="chinups">Chinups</option>
+        <option value="OHP-DB">OHP-DB</option>
+        <option value="OHP-BB">OHP-BB</option>
+        <option value="Bench DB">Bench DB</option>
+        <option value="Bench BB">Bench BB</option>
+        </select>
+        <input class="smallinput" type="number" name="workout[weight]" id="weight" placeholder="Weight" required>
+        <input class="smallinput" type="number" name="workout[reps]" placeholder="Reps" required>
+        <input class="smallinput" type="number" name="workout[sets]" placeholder="Sets" required>
+        <input class="smallinput" type="date" name="workout[exercisedate]" required>
+        <input id="submitnew" type="submit">
+    </form>
+</div>
+<br>
+<div class="uidivider"></div>   
+
+
+
+
+
+<script src="/js/newworkout.js"></script>
 <div class="uidivider"></div>   
 <% workouts.forEach(function(workout){ %>
 <div class="workoutlisted">
-    <%=workout.exercisedate.toDateString().substr(4,7)%>
+    <% if(workout.exercisedate){%>
+    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=workout.exercisedate.toDateString().substr(4,7)%></a></div>
+    <%} else {%>
+   <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit">+</a></div>
+    <%}%>
    <div class="workoutname"><%=workout.exercise %>:</div>
    <div class="workoutdata"><%=workout.weight%> lbs</div>
    <div class="workoutdata"><%=workout.reps %> reps</div>
@@ -13,3 +46,4 @@
 <% }) %>
 
 <%include ../partials/footer %>
+

@@ -33,22 +33,7 @@ app.get('/signup', function(req, res){
 })
 
 
-//Workouts Routes
-//INDEX
-// app.get('/workouts', function(req, res){
-//     res.render('workouts/index')
-// })
-
-// //NEW
-// app.get('/workouts/new', function(req, res){
-//     res.render('workouts/new');
-// })
-
-
-
 app.use('/workouts', workoutRoutes);
-
-
 
 
 

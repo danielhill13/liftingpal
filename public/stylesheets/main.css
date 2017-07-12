@@ -38,11 +38,15 @@ body {
 }
 .workoutname{
     display: inline-flex;
-    width: 60px;
+    width: 65px;
 }
 .workoutdata {
     display: inline-flex;
     width: 60px;
+}
+.workoutdate {
+    display: inline-flex;
+    width: 50px;
 }
 
 /*Flexbox Footer*/
