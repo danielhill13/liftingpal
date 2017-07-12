@@ -1,7 +1,15 @@
 <%include ../partials/header %>
 <h1>This is index of workouts</h1>
-
-
 <a href="/workouts/new">Add a workout</a>
+<div class="uidivider"></div>   
+<% workouts.forEach(function(workout){ %>
+<p class="workoutlisted">
+    <%=workout.exercisedate.toDateString().substr(4,12) %>
+    <%=workout.exercise %>:
+    <%=workout.weight %> lbs
+    <%=workout.reps %> reps
+    <%=workout.sets %> sets
+</p>
+<% }) %>
 
 <%include ../partials/footer %>

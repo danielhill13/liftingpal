@@ -30,6 +30,10 @@ body {
 .content {  
     flex: 1 0 auto;
 }
+.workoutlisted {
+    margin: 3px;
+}
+
 
 /*Flexbox Footer*/
 #footer {

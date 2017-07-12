@@ -6,18 +6,22 @@ var express             = require('express'),
     passport            = require('passport'),
     LocalStrategy       = require('passport-local'),
     methodOverride      = require('method-override'),
-    expressSanitizer    = require('express-sanitizer');
+    expressSanitizer    = require('express-sanitizer'),
+    Workout             = require('./models/workout');
 
+//ROUTES Requires
+var workoutRoutes       = require('./routes/workout');
 
 //DB Connection Config - avoids deprecation warning/issue
-mongoose.Promise = global.Promise;
-var promise = mongoose.connect('process.env.DATABASEURL' || 'mongodb://localhost/liftingpal', {
-   useMongoClient: true
-});
+mongoose.Promise = require('bluebird');
+var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
+mongoose.connect(dbUrl);
 
-
+app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(methodOverride("_method"));
+app.use(expressSanitizer());
 
 
 app.get('/', function(req, res){
@@ -31,27 +35,18 @@ app.get('/signup', function(req, res){
 
 //Workouts Routes
 //INDEX
-app.get('/workouts', function(req, res){
-    res.render('workouts/index')
-})
+// app.get('/workouts', function(req, res){
+//     res.render('workouts/index')
+// })
 
-//NEW
-app.get('/workouts/new', function(req, res){
-    res.render('workouts/new');
-})
-
-
+// //NEW
+// app.get('/workouts/new', function(req, res){
+//     res.render('workouts/new');
+// })
 
 
 
-
-
-
-
-
-
-
-
+app.use('/workouts', workoutRoutes);
 
 
 

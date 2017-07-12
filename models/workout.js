@@ -2,19 +2,19 @@ var mongoose = require("mongoose");
 
 var workoutSchema = new mongoose.Schema({
     exercise: String,
-    weight: {
-        units: String,  //Pounds or Kilos
-        weight: Number
-    },
+    weight: Number,
     reps: Number,
     sets: Number,
-    author: {
-        id: {
-            type: mongoose.Schema.Types.ObjectID,
-            ref: "User"
-        },
+    created: {type: Date, default: Date.now},
+    exercisedate: Date
+    // ,
+    // author: {
+    //     id: {
+    //         type: mongoose.Schema.Types.ObjectID,
+    //         ref: "User"
+    //     },
         // username: String
-    }
+    // }
 });
 
 
