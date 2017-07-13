@@ -64,15 +64,15 @@ router.put("/:id", function(req, res){
     });
 });
 //DESTROY
-// router.delete("/:id", middleware.checkDestinationOwnership, function(req, res){
-//     Destination.findByIdAndRemove(req.params.id, function(err){
-//         if(err){
-//             console.log("Issue deleting object");
-//             res.redirect("/destinations");
-//         } else{
-//             res.redirect("/destinations");
-//         }
-//     })
-// });
+router.delete("/:id", function(req, res){
+    Workout.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log("Issue deleting workout");
+            res.redirect("/workouts");
+        } else{
+            res.redirect("/workouts");
+        }
+    })
+});
 
 module.exports = router;

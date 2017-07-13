@@ -4,7 +4,7 @@
 <div>
     <p id="add">Add Exercise</p>
     <form id="newliftform" class="hidden" action="/workouts" method="POST">
-        <select class="smallinput" name="workout[exercise]">
+        <select class="smallinput" name="workout[exercise]" required>
         <option value="default">Select</option>
         <option value="squat">Squat</option>
         <option value="deadlift">Deadlift</option>
@@ -17,9 +17,9 @@
         <option value="Bench BB">Bench BB</option>
         </select>
         <input class="smallinput" type="number" name="workout[weight]" id="weight" placeholder="Weight">
-        <input class="smallinput" type="number" name="workout[reps]" placeholder="Reps">
-        <input class="smallinput" type="number" name="workout[sets]" placeholder="Sets">
-        <input class="smallinput" type="date" name="workout[exercisedate]">
+        <input class="smallinput" type="number" name="workout[reps]" placeholder="Reps" required>
+        <input class="smallinput" type="number" name="workout[sets]" placeholder="Sets" required>
+        <input class="smallinput" type="date" name="workout[exercisedate]" required >
         <input id="submitnew" type="submit">
     </form>
 </div>

@@ -14,11 +14,28 @@ body {
 
 
 @media screen and (max-width: 600px) {
-    .smallinput {
+.smallinput {
         width: 57px;
     }
+.workoutname{
+    width: 65px;
+}
+.workoutdata {
+    width: 60px;
+}
+.workoutdate {
+    width: 50px;
+}
+}
+@media screen and (min-width: 601px) {
+.workoutlisted{
+    max-width: 50%
+}
 }
 
+.workoutname, .workoutdata, .workoutdate {
+    display: inline-flex;
+}
 /*Basic UI Divider*/
 .uidivider {
     width: 95%;
@@ -35,18 +52,6 @@ body {
     text-transform: capitalize;
     border: 1px dashed #aaa;
     margin: 2px;
-}
-.workoutname{
-    display: inline-flex;
-    width: 65px;
-}
-.workoutdata {
-    display: inline-flex;
-    width: 60px;
-}
-.workoutdate {
-    display: inline-flex;
-    width: 50px;
 }
 
 /*Flexbox Footer*/

@@ -1,5 +1,30 @@
 <%include ../partials/header %>
 <h1>Edit Workout</h1>
-
-
+<h2><a href="/workouts">Cancel / Go Back</a></h2>
+<form class="" action="/workouts/<%=workout._id %>?_method=PUT" method="POST">
+<form class="" action="/workouts/<%=workout._id %>?_method=PUT" method="POST">
+        <select class="smallinput" name="workout[exercise]">
+        <option  value="<%=workout.exercise%>"><%=workout.exercise%></option>
+        <option value="squat">Squat</option>
+        <option value="deadlift">Deadlift</option>
+        <option value="pullups">Pullups</option>
+        <option value="pushups">Pushups</option>
+        <option value="chinups">Chinups</option>
+        <option value="OHP-DB">OHP-DB</option>
+        <option value="OHP-BB">OHP-BB</option>
+        <option value="Bench DB">Bench DB</option>
+        <option value="Bench BB">Bench BB</option>
+        </select>
+        <input class="smallinput" type="number" name="workout[weight]" id="weight" value="<%=workout.weight%>">
+        <input class="smallinput" type="number" name="workout[reps]" value="<%=workout.reps%>">
+        <input class="smallinput" type="number" name="workout[sets]" value="<%=workout.sets%>">
+        <input class="smallinput" type="date" name="workout[exercisedate]" value="<%=workout.exercisedate.toISOString().substring(0, 10)%>">
+        <input id="submitnew" type="submit">
+    </form>
+    <br>
+<div class="uidivider"></div>
+<br>
+<form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+<input type="submit"  value="Delete">
+</form>
 <%include ../partials/footer %>
