@@ -1,0 +1,7 @@
+<%include ../partials/header %>
+<h1>Show Workout</h1>
+<%
+var start = year + '-' + month + '-' + day;
+var end = year + '-' + month + '-' + (day+=1);
+db.workouts.find({ exercisedate: { $gte:ISODate("2017-07-09T14:00:00Z"), $lt: ISODate("2017-07-10T20:00:00Z") } })
+<%include ../partials/footer %>

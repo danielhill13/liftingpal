@@ -7,15 +7,17 @@ var express             = require('express'),
     LocalStrategy       = require('passport-local'),
     methodOverride      = require('method-override'),
     expressSanitizer    = require('express-sanitizer'),
-    Workout             = require('./models/workout');
+    Workout             = require('./models/workout')
+    ejsLint             = require('ejs-lint')
+    moment              = require('moment');
 
 //ROUTES Requires
 var workoutRoutes       = require('./routes/workout');
 
 //DB Connection Config - avoids deprecation warning/issue
-// mongoose.Promise = require('bluebird');
-// var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
-// mongoose.connect(dbUrl);
+mongoose.Promise = require('bluebird');
+var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
+mongoose.connect(dbUrl);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');

@@ -29,12 +29,36 @@
 
 
 
-<script src="/js/newworkout.js"></script>
 <div class="uidivider"></div>   
+<h3>View Lifts By Date</h3>
 <% workouts.forEach(function(workout){ %>
+<% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
+<%
+var m = monthNames[workout.exercisedate.getMonth()]
+var d = workout.exercisedate.getDate()
+var y = workout.exercisedate.getFullYear()
+%>
 <div class="workoutlisted">
     <% if(workout.exercisedate){%>
-    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=workout.exercisedate.toDateString().substr(4,7)%></a></div>
+    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
+    <%} else {%>
+    <%}%>
+</div>
+
+
+<% }) %>
+<div class="uidivider"></div>   
+<h3>All Lifts</h3>
+<% workouts.forEach(function(workout){ %>
+<% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
+<%
+var m = monthNames[workout.exercisedate.getMonth()]
+var d = workout.exercisedate.getDate()
+var y = workout.exercisedate.getFullYear()
+%>
+<div class="workoutlisted">
+    <% if(workout.exercisedate){%>
+    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
     <%} else {%>
    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit">+</a></div>
     <%}%>
@@ -42,8 +66,11 @@
    <div class="workoutdata"><%=workout.weight%> lbs</div>
    <div class="workoutdata"><%=workout.reps %> reps</div>
    <div class="workoutdata"><%=workout.sets %> sets</div>
+
 </div>
+
+
 <% }) %>
 
+<script src="/js/newworkout.js"></script>
 <%include ../partials/footer %>
-

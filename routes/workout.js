@@ -46,6 +46,8 @@ router.get("/:id", function(req, res){
         }
     })
 });
+//SHOW BY Date
+
 // EDIT - takes me to edit workout page
 router.get("/:id/edit", function(req, res){
     Workout.findById(req.params.id, function(err, foundWorkout){
