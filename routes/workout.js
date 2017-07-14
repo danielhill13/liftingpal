@@ -5,7 +5,8 @@ var express = require("express"),
 //WORKOUT ROUTES
 //INDEX
 router.get("/", function(req, res){
-    Workout.find({}, function(err, workouts){
+    // Workout.find({}, function(err, workouts){
+Workout.find({}).sort({exercisedate: -1}).exec(function(err,workouts){
         if(err){
             console.log(err);
         } else {
@@ -25,6 +26,7 @@ router.post("/", function(req, res){
     var reps = req.sanitize(req.body.workout.reps);
     var sets = req.sanitize(req.body.workout.sets);
     var exercisedate = req.sanitize(req.body.workout.exercisedate);
+    console.log(req.body);
     var newWorkout = {exercise: exercise, weight: weight, reps: reps, sets: sets, exercisedate: exercisedate}
     Workout.create(newWorkout, function(err, newWorkout){
         if(err){
@@ -36,17 +38,16 @@ router.post("/", function(req, res){
     })
 })
 //SHOW
-router.get("/:id", function(req, res){
-    Workout.findById(req.params.id).exec(function(err, foundWorkout){
-        if(err){
-            console.log(err);
-            res.redirect("/workouts");
-        }else {
-            res.render("workouts/show", {workout: foundWorkout});
-        }
-    })
-});
-//SHOW BY Date
+// router.get("/:id", function(req, res){
+//     Workout.findById(req.params.id).exec(function(err, foundWorkout){
+//         if(err){
+//             console.log(err);
+//             res.redirect("/workouts");
+//         }else {
+//             res.render("workouts/show", {workout: foundWorkout});
+//         }
+//     })
+// });
 
 // EDIT - takes me to edit workout page
 router.get("/:id/edit", function(req, res){

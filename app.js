@@ -7,17 +7,18 @@ var express             = require('express'),
     LocalStrategy       = require('passport-local'),
     methodOverride      = require('method-override'),
     expressSanitizer    = require('express-sanitizer'),
-    Workout             = require('./models/workout')
-    ejsLint             = require('ejs-lint')
+    Workout             = require('./models/workout'),
+    ejsLint             = require('ejs-lint'),
     moment              = require('moment');
 
 //ROUTES Requires
 var workoutRoutes       = require('./routes/workout');
-
+var indexRoutes       = require('./routes/index');
 //DB Connection Config - avoids deprecation warning/issue
-mongoose.Promise = require('bluebird');
 var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
+mongoose.Promise = require('bluebird');
 mongoose.connect(dbUrl);
+mongoose.set('debug', true);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -38,7 +39,24 @@ app.get('/about', function(req, res){
     res.send("About");
 })
 
+//SHOW BY Date
+app.get("/date", function(req, res){
+    Workout.find({
+        exercisedate: {
+            $gte: Date("2017-06-09T00:00:00Z"),
+            $lt:  Date("2017-07-13T00:00:00Z") 
+        }
+    }, function(err, workouts){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('workouts/showdate', {workouts: workouts}) ;
+        }
+    });
+});
+
 app.use('/workouts', workoutRoutes);
+
 
 
 

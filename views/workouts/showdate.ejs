@@ -1,7 +1,21 @@
 <%include ../partials/header %>
-<h1>Show Workout</h1>
-<%
-var start = year + '-' + month + '-' + day;
-var end = year + '-' + month + '-' + (day+=1);
-db.workouts.find({ exercisedate: { $gte:ISODate("2017-07-09T14:00:00Z"), $lt: ISODate("2017-07-10T20:00:00Z") } })
+<h1>Show Workouts for Date</h1>
+
+<h3>All Lifts</h3>
+<% workouts.forEach(function(workout){ %>
+<div class="workoutlisted">
+    <% if(workout.exercisedate){%>
+    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
+    <%} else {%>
+    <%}%>
+   <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit">+</a></div>
+   <div class="workoutname"><%=workout.exercise %>:</div>
+   <div class="workoutdata"><%=workout.weight%> lbs</div>
+   <div class="workoutdata"><%=workout.reps %> reps</div>
+   <div class="workoutdata"><%=workout.sets %> sets</div>
+    <%})%>
+</div>
+
+
+
 <%include ../partials/footer %>
