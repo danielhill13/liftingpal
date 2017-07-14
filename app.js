@@ -34,6 +34,9 @@ app.get('/signup', function(req, res){
     res.render('signup');
 })
 
+app.get('/about', function(req, res){
+    res.send("About");
+})
 
 app.use('/workouts', workoutRoutes);
 
