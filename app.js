@@ -39,22 +39,6 @@ app.get('/about', function(req, res){
     res.send("About");
 })
 
-//SHOW BY Date
-app.get("/date", function(req, res){
-    Workout.find({
-        exercisedate: {
-            $gte: Date("2017-06-09T00:00:00Z"),
-            $lt:  Date("2017-07-13T00:00:00Z") 
-        }
-    }, function(err, workouts){
-        if(err){
-            console.log(err);
-        } else {
-            res.render('workouts/showdate', {workouts: workouts}) ;
-        }
-    });
-});
-
 app.use('/workouts', workoutRoutes);
 
 

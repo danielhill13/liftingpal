@@ -26,27 +26,19 @@
 <div class="uidivider"></div>   
 
 
-
-
-
-<div class="uidivider"></div>   
+<br>
 <h3>View Lifts By Date</h3>
-<% workouts.forEach(function(workout){ %>
-<% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
-<%
-var m = monthNames[workout.exercisedate.getMonth()]
-var d = workout.exercisedate.getDate()
-var y = workout.exercisedate.getFullYear()
-%>
-<div class="workoutlisted">
-    <% if(workout.exercisedate){%>
-    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
-    <%} else {%>
-    <%}%>
-</div>
+<h5>Select Date (or range) to view below</h5>
+<form action="/workouts">
+    <label for="datestart">Start Date</label>
+    <input type="date" name="datestart" required>
+    <label for="datestart">End Date - optional. If blank will return one day</label>
+    <input type="date" name="dateend">
+    <input type="submit">
+</form>
 
 
-<% }) %>
+
 <div class="uidivider"></div>   
 <h3>All Lifts</h3>
 <% workouts.forEach(function(workout){ %>

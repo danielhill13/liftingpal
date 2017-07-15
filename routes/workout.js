@@ -48,7 +48,25 @@ router.post("/", function(req, res){
 //         }
 //     })
 // });
-
+//SHOW BY DATE
+router.get("/date", function(req, res){
+    var m = req.body.month;
+    var d = req.body.date;
+    var y = req.body.year;
+    var startDate = y+"-"+m+"-"+d+"T00:00:00Z";
+    Workout.find({
+        exercisedate: {
+            $gte: new Date("2017-04-01T00:00:00Z"),
+            $lt:  new Date("2017-06-30T00:00:00Z") 
+        }
+    }, function(err, workouts){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('workouts/showdate', {workouts: workouts}) ;
+        }
+    });
+});
 // EDIT - takes me to edit workout page
 router.get("/:id/edit", function(req, res){
     Workout.findById(req.params.id, function(err, foundWorkout){
