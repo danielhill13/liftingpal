@@ -50,10 +50,11 @@ router.post("/", function(req, res){
 // });
 //SHOW BY DATE
 router.get("/date", function(req, res){
-    var m = req.body.month;
-    var d = req.body.date;
-    var y = req.body.year;
-    var startDate = y+"-"+m+"-"+d+"T00:00:00Z";
+    // var mStart = req.body.datestart.substr(5,6);
+    // var dStart = req.body.datestart.substr(8,9);
+    // var yStart = req.body.datestart.substr(0,3);
+    // var startDate = yStart+"-"+mStart+"-"+dStart+"T00:00:00Z";
+    console.log(req.body.datestart + "  " + req.body.dateend);
     Workout.find({
         exercisedate: {
             $gte: new Date("2017-04-01T00:00:00Z"),
