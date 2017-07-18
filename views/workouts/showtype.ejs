@@ -1,9 +1,16 @@
 <%include ../partials/header %>
 <h1>Show Workouts for Type</h1>
 
-<h3>Lifts by Type</h3>
-
+<h3>All <%= lifttype.toUpperCase() %></h3>
+<% workouts.forEach(function(workout){ %>
+<% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
+<%
+var m = monthNames[workout.exercisedate.getMonth()]
+var d = workout.exercisedate.getDate()
+var y = workout.exercisedate.getFullYear()
+%>
 <div class="workoutlisted">
+    <% if(workout.exercisedate){%>
     <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
     <%} else {%>
     <%}%>

@@ -65,6 +65,17 @@ router.post("/date", function(req, res){
         }
     });
 });
+//SHOW BY TYPE
+router.post("/type", function(req, res){
+    var lifttype = req.body.lifttype;
+    Workout.find({exercise: lifttype}).sort({exercisedate: -1}).exec(function(err, workouts){
+        if(err){
+            console.log(err);
+        } else {
+            res.render('workouts/showtype', {workouts: workouts, lifttype: lifttype}) ;
+        }
+    });
+});
 // EDIT - takes me to edit workout page
 router.get("/:id/edit", function(req, res){
     Workout.findById(req.params.id, function(err, foundWorkout){
