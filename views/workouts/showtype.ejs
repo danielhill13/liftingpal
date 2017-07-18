@@ -1,0 +1,20 @@
+<%include ../partials/header %>
+<h1>Show Workouts for Type</h1>
+
+<h3>Lifts by Type</h3>
+
+<div class="workoutlisted">
+    <div class="workoutdate"><a href="/workouts/<%= workout._id%>/edit"><%=d+' '+m+' '+y%></a></div>
+    <%} else {%>
+    <%}%>
+   <div class="workoutdata"><%=workout.weight%> lbs</div>
+   <div class="workoutdata"><%=workout.reps %> reps</div>
+   <div class="workoutdata"><%=workout.sets %> sets</div>
+</div>
+<%})%>
+<br>
+<div class="uidivider"></div>   
+
+
+<script src="/js/newworkout.js"></script>
+<%include ../partials/footer %>

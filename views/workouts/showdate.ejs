@@ -1,7 +1,7 @@
 <%include ../partials/header %>
 <h1>Show Workouts for Date</h1>
 
-<h3>All Lifts</h3>
+<h3>Lifts Between <%= datestart.substr(0,10) %> and <%= dateend.substr(0,10) %></h3>
 <% workouts.forEach(function(workout){ %>
 <% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
 <%

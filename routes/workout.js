@@ -57,11 +57,11 @@ router.post("/date", function(req, res){
             $gte: new Date(datestart),
             $lt:  new Date(dateend) 
         }
-    }, function(err, workouts){
+    }).sort({exercisedate: -1}).exec(function(err, workouts){
         if(err){
             console.log(err);
         } else {
-            res.render('workouts/showdate', {workouts: workouts}) ;
+            res.render('workouts/showdate', {workouts: workouts, datestart: datestart, dateend: dateend}) ;
         }
     });
 });
