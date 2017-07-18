@@ -49,16 +49,14 @@ router.post("/", function(req, res){
 //     })
 // });
 //SHOW BY DATE
-router.get("/date", function(req, res){
-    // var mStart = req.body.datestart.substr(5,6);
-    // var dStart = req.body.datestart.substr(8,9);
-    // var yStart = req.body.datestart.substr(0,3);
-    // var startDate = yStart+"-"+mStart+"-"+dStart+"T00:00:00Z";
-    console.log(req.body.datestart + "  " + req.body.dateend);
+router.post("/date", function(req, res){
+    var datestart = req.body.datestart + "T00:00:00Z";
+    var dateend = req.body.dateend + "T00:00:00Z";
+    console.log("between " + datestart + " and " + dateend);
     Workout.find({
         exercisedate: {
-            $gte: new Date("2017-04-01T00:00:00Z"),
-            $lt:  new Date("2017-06-30T00:00:00Z") 
+            $gte: new Date(datestart),
+            $lt:  new Date(dateend) 
         }
     }, function(err, workouts){
         if(err){

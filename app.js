@@ -11,6 +11,8 @@ var express             = require('express'),
     ejsLint             = require('ejs-lint'),
     moment              = require('moment');
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 //ROUTES Requires
 var workoutRoutes       = require('./routes/workout');
 var indexRoutes       = require('./routes/index');
@@ -20,11 +22,11 @@ mongoose.Promise = require('bluebird');
 mongoose.connect(dbUrl);
 mongoose.set('debug', true);
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride("_method"));
 app.use(expressSanitizer());
+app.use('/workouts', workoutRoutes);
 
 
 app.get('/', function(req, res){
@@ -39,7 +41,6 @@ app.get('/about', function(req, res){
     res.send("About");
 })
 
-app.use('/workouts', workoutRoutes);
 
 
 
