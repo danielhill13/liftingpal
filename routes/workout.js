@@ -52,7 +52,6 @@ router.post("/", function(req, res){
 router.post("/date", function(req, res){
     var datestart = req.body.datestart + "T00:00:00Z";
     var dateend = req.body.dateend + "T00:00:00Z";
-    console.log("between " + datestart + " and " + dateend);
     Workout.find({
         exercisedate: {
             $gte: new Date(datestart),
