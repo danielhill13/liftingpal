@@ -1,6 +1,8 @@
-var express = require("express"),
+var express = require('express'),
     router  = express.Router(),
-    Workout = require("../models/workout");
+    Workout = require('../models/workout'),
+    User = require('../models/user'),
+    middleware = require('../middleware/index');
 
 //WORKOUT ROUTES
 //INDEX

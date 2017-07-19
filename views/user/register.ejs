@@ -1,4 +1,4 @@
-<%include ./partials/header %>
+<%include ../partials/header %>
 <h1>Sign Up</h1>
 
 <form action="/register" method="POST">
@@ -6,6 +6,9 @@
     <br>
     <input type="password" name="password" placeholder="password" required >
     <br>
+    <input type="date" name="birthdate" >
+    <input type="number" name="bodyweight"  >
+    <input type="number" name="goalweight"  >
     <button>Submit</button>
 </form>
-<%include ./partials/footer %>
+<%include ../partials/footer %>
