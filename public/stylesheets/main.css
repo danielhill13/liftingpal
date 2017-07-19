@@ -38,7 +38,8 @@ body {
 }
 /*Basic UI Divider*/
 .uidivider {
-    width: 95%;
+    width: 98%;
+    margin: auto;
     height: 1px;
     background: #aaa
 }
