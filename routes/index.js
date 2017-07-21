@@ -30,7 +30,7 @@ router.get("/login", function (req, res){
 //login logic
 router.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/",
+        successRedirect: "/workouts",
         failureRedirect: "/login"
     }), function (req, res){
 })
