@@ -41,4 +41,30 @@ router.get("/logout", function(req, res){
     res.redirect("/");
 })
 
+
+
+//View your profile
+router.get("/profile", function(req, res){
+    res.render("user/profile");
+})
+// //EDIT edit profile
+// router.get("/profileupdate", middleware.isLoggedIn, function(req, res){
+//     User.findById(req.params.id, function(err, foundUser){
+//     res.render("user/profileupdate", {user: foundUser});
+//     })
+// })
+
+// //UPDATE profile
+// router.put("/profileupdate/:id", middleware.isLoggedIn, function(req, res){
+//     User.findByIdAndUpdate(req.params.id, req.body.user, function(err, updatedUser){
+//         if(err){
+//             console.log("Error updating profile");
+//             res.redirect("/profile");
+//         } else {
+//             req.flash("success", "Profile updated successfully");
+//             res.redirect("/");
+//         }
+//     })
+// })
+
 module.exports = router;

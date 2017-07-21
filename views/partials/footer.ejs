@@ -4,9 +4,14 @@
 </div>
 <footer id='footer'>
     <div><a href="/">Home</a></div>    
-    <div><a href="/workouts">Workouts</a></div>    
+    <div><a href="/workouts">Workouts</a></div>
+<% if (!currentUser){ %>
     <div><a href="/register">Signup</a></div>    
     <div><a href="/login">Login</a></div>    
+    <% } else { %>
+    <div><a href="/logout">Logout</a></div>    
+    <div id='user'><a href="/profile"><%= currentUser.username.substr(0,11) %>...</a></div>
+<%} %>  
     </div>
 
     </footer> 

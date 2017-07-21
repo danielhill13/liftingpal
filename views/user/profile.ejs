@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<h1>Profile Page</h1>
+
+Welcome 
+<% if (currentUser){ %>
+<%= currentUser.username %>
+<%}else { %>
+<p>Please register <a href="register">here</a></p>
+<%}%>
+<% include ../partials/footer %>

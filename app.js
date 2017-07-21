@@ -13,17 +13,21 @@ var express             = require('express'),
     ejsLint             = require('ejs-lint'),
     moment              = require('moment');
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-//ROUTES Requires
+
+    //ROUTES Requires
 var workoutRoutes       = require('./routes/workout');
 var indexRoutes         = require('./routes/index');
+
+
+
 //DB Connection Config - avoids deprecation warning/issue
 var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
 mongoose.Promise = require('bluebird');
 mongoose.connect(dbUrl);
 mongoose.set('debug', true);
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(methodOverride("_method"));
@@ -43,20 +47,17 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // //PASS LOGGED IN USER TO ALL ROUTES - KEEP BELOW PASSPORT CONFIG
-// app.use(function(req, res, next){
-//     res.locals.currentUser = req.user;
-//     res.locals.error = req.flash('error');
-//     res.locals.success = req.flash('success');
-// })
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
+    next();
+});
 
 
 app.get('/', function(req, res){
     res.render('index');
 })
-
-// app.get('/register', function(req, res){
-//     res.render('user/register');
-// })
 
 app.get('/about', function(req, res){
     res.send("About");
