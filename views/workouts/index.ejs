@@ -28,12 +28,14 @@
 
 <br>
 <h3>View Lifts By Date</h3>
-<h5>Select Date (or range) to view below</h5>
+<h5>Find Workouts...</h5>
 <form action="/workouts/date" method="POST">
-    <label for="datestart">Start Date</label>
+    <label for="datestart">From: </label>
     <input type="date" name="datestart" required>
-    <label for="datestart">End Date - optional. If blank will return one day</label>
+    <br>
+    <label for="datestart">Through:</label>
     <input type="date" name="dateend">
+    <br>
     <input type="submit">
 </form>
 
@@ -60,11 +62,11 @@
 <div class="uidivider"></div>   
 <h3>All Lifts</h3>
 <% workouts.forEach(function(workout){ %>
-<% var monthNames=['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']%>
+<% var monthNames=['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']%>
 <%
 var m = monthNames[workout.exercisedate.getMonth()]
 var d = workout.exercisedate.getDate()
-var y = workout.exercisedate.getFullYear()
+var y = workout.exercisedate.getFullYear().toString().substr(2);
 %>
 <div class="workoutlisted">
     <% if(workout.exercisedate){%>

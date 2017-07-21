@@ -31,16 +31,16 @@ app.use(expressSanitizer());
 app.use(flash());
 
 //PASSPORT
-// app.use(require('express-session')({
-//     secret: 'this is a test secret for local development',
-//     resave: false,
-//     saveUninitialized: false
-// }))
-// app.use(passport.initialize());
-// app.use(passport.session());
-// passport.use(new LocalStrategy(User.authenticate()));
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+app.use(require('express-session')({
+    secret: 'this is a test secret for local development',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // //PASS LOGGED IN USER TO ALL ROUTES - KEEP BELOW PASSPORT CONFIG
 // app.use(function(req, res, next){

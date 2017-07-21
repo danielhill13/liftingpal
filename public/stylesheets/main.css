@@ -21,20 +21,21 @@ body {
     width: 65px;
 }
 .workoutdata {
-    width: 60px;
+    width: 55px;
 }
 .workoutdate {
-    width: 50px;
+    width: 63px;
 }
 }
 @media screen and (min-width: 601px) {
 .workoutlisted{
-    max-width: 50%
+    max-width: 65%
 }
 }
 
 .workoutname, .workoutdata, .workoutdate {
     display: inline-flex;
+    font-size: 0.9em;
 }
 /*Basic UI Divider*/
 .uidivider {

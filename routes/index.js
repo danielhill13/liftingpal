@@ -23,4 +23,22 @@ router.post('/register', function(req, res){
     })
 })
 
+//show login form
+router.get("/login", function (req, res){
+    res.render("user/login");
+})
+//login logic
+router.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/",
+        failureRedirect: "/login"
+    }), function (req, res){
+})
+//logout route
+router.get("/logout", function(req, res){
+    req.logout();
+    req.flash("success", "Logged you out");
+    res.redirect("/");
+})
+
 module.exports = router;
