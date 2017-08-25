@@ -21,7 +21,7 @@ var indexRoutes         = require('./routes/index');
 
 
 //DB Connection Config - avoids deprecation warning/issue
-var dbUrl = process.env.DATABASEURL || 'mongodb://localhost/liftingpal';
+var dbUrl = process.env.MONGODB_URI || 'mongodb://localhost/liftingpal';
 mongoose.Promise = require('bluebird');
 mongoose.connect(dbUrl);
 mongoose.set('debug', true);
