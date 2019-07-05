@@ -64,7 +64,7 @@ app.get('/about', function(req, res){
 });
 
 app.get('/lotto', function(req, res){
-    res.render("lotto");
+    res.render('lotto');
 });
 
 
