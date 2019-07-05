@@ -1,0 +1,41 @@
+<%include ./partials/header %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Lotto Numbers!</title>
+</head>
+<h1>Lotto Picker</h1>
+<button type = "submit" class = "btn btn-primary" id="lottobutton" onclick="lottoProvide()"> Get some numbers!</button>
+
+
+<script>
+function gimmeThatLotto(){
+    var lottoArray = [];
+    var ballNum = getLuckyBall();
+for (i = 0; i < 5; i++){
+    lottoArray.push(getNumber(lottoArray));
+}
+return "Your Lotto Numbers are " + lottoArray.sort(function(a, b){return a - b}) + " and your ball number is " + ballNum;
+}
+function getNumber(lottoArray){
+    var A = Math.floor(Math.random() * 71);
+    while (A > 69 || A < 1 || A == lottoArray[0]  || A == lottoArray[1] || A == lottoArray[2] || A == lottoArray[3] ){
+         A = Math.floor(Math.random() * 71);
+    }
+    return A;
+}
+function getLuckyBall(){
+    return Math.floor(Math.random()* 27)
+}
+
+function lottoProvide(){
+    var answer = document.createElement("p");
+    answer.innerHTML = gimmeThatLotto();
+    document.body.appendChild(answer);
+}
+
+</script>
+<%include ./partials/footer %>
