@@ -63,9 +63,9 @@ app.get('/about', function(req, res){
     res.send("About");
 });
 
-// app.get('/lotto', function(req, res){
-//     res.render('lotto');
-// });
+app.get('/lotto', function(req, res){
+    res.render('lotto');
+});
 
 
 app.use(indexRoutes);

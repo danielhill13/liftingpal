@@ -7,6 +7,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background: linear-gradient(to right, #eef2f3, #8e9eab)
 }
 .hidden {
     display: none;
@@ -65,4 +66,9 @@ body {
 }
 #footer div {
     margin: 0px 5px 0px 0px;
+}
+h1 {
+    font-weight: bold;
+    text-align: center;
+
 }

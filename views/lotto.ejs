@@ -1,0 +1,20 @@
+<%include ./partials/header %>
+<link rel="stylesheet" href="stylesheets/lotto.css">
+<div id="mainlottodiv">
+
+    <h1>Lotto Picker</h1>
+    <p id="lottodescription">Use this tool to pick a random lotto number. Is it your lucky day?</p>
+    <br>
+    
+    <button type = "submit" class = "btn btn-primary" id="pbbutton" onclick="pbProvide()"> Get PowerBall numbers!</button>    <br>
+    <p id="afterPB"> </p>
+
+    <br>
+    
+    <button type = "submit" class = "btn btn-primary" id="mmbutton" onclick="mmProvide()"> Get Mega Millions numbers!</button>
+    <br>
+    <p id="afterMM"></p>
+    <br>
+</div>
+    <script src = "js/lotto.js"></script>
+<%include ./partials/footer %>
